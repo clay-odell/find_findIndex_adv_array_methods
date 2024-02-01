@@ -29,4 +29,18 @@ const users = [
   const findAnswer1 = findUserByUsername(users, 'mlewis') // {username: 'mlewis'}
   const findAnswer2 = findUserByUsername(users, 'taco') // undefined
 
+  function removeUser (arr, username){
+    let foundIndex = arr.findIndex(function(user) {
+        return user.username === username;
+    })
+    if(foundIndex === -1) return;
+    return arr.splice(foundIndex,1)[0];
+  }
+  const users2 = [
+    {username: 'mlewis'},
+    {username: 'akagen'},
+    {username: 'msmith'}
+  ];
   
+const findIndexAnswer1 = removeUser(users, 'akagen') // {username: 'akagen'}
+const findIndexAnswer2 = removeUser(users, 'akagen') // undefined
